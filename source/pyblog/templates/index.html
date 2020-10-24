@@ -1,0 +1,63 @@
+{% extends "base.html" %} 
+{% block content %}
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        font-size: 18px;
+        background-color: #fdfdfd;
+    }
+    
+    .head_text {
+        color: white;
+    }
+
+    .card {
+        display: flex;
+        width: 18rem;
+        height:18rem;
+    }
+
+    .column {
+        float: left;
+        width: 25%;
+        padding: 0 10px;
+    }
+
+
+    .center {
+        margin: auto;
+        width: 80%;
+        padding: 2%;
+    }
+</style>
+
+<header class="masthead">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class=" col-md-8 col-md-10 mx-auto">
+                <div class="site-heading">
+                    <h3 class=" site-heading my-4 mt-3 text-white">PyBlog!</h3>
+                    <p class="text-light">Ho Ho!&nbsp
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <!-- Blog Entries Column -->
+    <div class="center">
+        {% for post in post_list %}
+        <div class="column">
+            <div class="card">
+                <img class="card-img-top" src="..." alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <p class="card-text">{{post.content|slice:80}}...</p>
+                    <a href="{{post.slug}}" class="btn btn-primary">Read More</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>    
+{% endblock %}
