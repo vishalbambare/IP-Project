@@ -12,12 +12,6 @@
         color: white;
     }
 
-    .card {
-        display: flex;
-        width: 18rem;
-        height:18rem;
-    }
-
     .column {
         float: left;
         width: 25%;
@@ -48,17 +42,19 @@
 </header>
         <!-- Blog Entries Column -->
     <div class="center">
-        {% for post in post_list %}
         <div class="column">
-            <div class="card">
-                <img class="card-img-top" src="/media/{{post.image}}" alt="Card image cap">
+        {% for post in post_list %}
+            <div class="card bg-light" style="width: 18rem;">
+                <img class="card-img-top" src="media/{{post.image}}" alt="Card image cap">
+                <div class="card-img-overlay">
+                    <h4 class="card-title">{{post.title}}</h4>
+                </div>
                 <div class="card-body">
-                    <h5 class="card-title">{{post.title}}</h5>
-                    <p class="card-text">{{post.content|slice:80}}...</p>
-                    <a href="{{post.slug}}" class="btn btn-primary">Read More</a>
+                    <p class="card-text">...{{post.content|slice:"200:300"}}...</p>
+                    <!--add button-->
                 </div>
             </div>
-        </div>
         {% endfor %}
+        </div>
     </div>    
 {% endblock %}
