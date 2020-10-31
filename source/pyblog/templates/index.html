@@ -1,60 +1,93 @@
-{% extends "base.html" %} 
-{% load static %}
-{% block content %}
-<style>
-    body {
-        font-family: "Roboto", sans-serif;
-        font-size: 18px;
-        background-color: #fdfdfd;
+{% extends 'base.html' %} {% block content %}
+</head>
+<body>
+    <style>
+    .shadow {
+        box-shadow: 0 4px 2px -2px rgba(0, 0, 0, 0.1);
     }
-    
-    .head_text {
-        color: white;
+    .btn-danger {
+        color: #fff;
+        background-color: #f00000;
+        border-color: #dc281e;
     }
-
+    .masthead {
+        background: #3398E1;
+        height: auto;
+        padding-bottom: 15px;
+        box-shadow: 0 16px 48px #E3E7EB;
+        padding-top: 10px;
+    }
+    * {
+        box-sizing: border-box;
+    }
+    /* Float four columns side by side */
     .column {
         float: left;
         width: 25%;
         padding: 0 10px;
     }
 
+    /* Remove extra left and right margins, due to padding */
+    .row {margin: 0 -5px;}
 
-    .center {
-        margin: auto;
-        width: 80%;
-        padding: 2%;
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
     }
-</style>
 
-<header class="masthead">
-    <div class="overlay"></div>
+    /* Responsive columns */
+    @media screen and (max-width: 600px) {
+        .column {
+        width: 100%;
+        display: block;
+        margin-left: 1rem;
+        }
+    }
+    /* Style the counter cards */
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        margin-top: 2rem;
+        text-align: center;
+        height: 20rem;
+        border: 0.1rem solid black;
+        color: black;
+    }
+    a:link {
+        text-decoration: none;
+    }
+    .card-img-top {
+        transition: .2s;
+    }
+    .card-img-top:hover {
+        transform: scale(1.3);
+        filter: blur(2px);
+    }
+    .card-image-overflow {
+        height: 50%;
+        overflow: hidden;
+        border-bottom:  0.1rem solid black;
+    }
+    .container {
+        width: 80%;
+    }
+    </style>
     <div class="container">
         <div class="row">
-            <div class=" col-md-8 col-md-10 mx-auto">
-                <div class="site-heading">
-                    <h3 class=" site-heading my-4 mt-3 text-white">PyBlog!</h3>
-                    <p class="text-light">Ho Ho!&nbsp
-                    </p>
+            {% for post in post_list %}
+            <a href="{{post.slug}}">
+            <div class="column">
+                <div class="card bg-dark text-light">
+                    <div class="card-image-overflow">
+                        <img src="media/{{post.image}}" class="card-img-top">
+                    </div>    
+                    <h4><b>{{post.title}}</b></h4>
+                    <p>...{{post.content|slice:"200:300"}}...</p>
                 </div>
+                </a>
             </div>
+            {% endfor %}
         </div>
     </div>
-</header>
-        <!-- Blog Entries Column -->
-    <div class="center">
-        <div class="column">
-        {% for post in post_list %}
-            <div class="card bg-light" style="width: 18rem;">
-                <img class="card-img-top" src="media/{{post.image}}" alt="Card image cap">
-                <div class="card-img-overlay">
-                    <h4 class="card-title">{{post.title}}</h4>
-                </div>
-                <div class="card-body">
-                    <p class="card-text">...{{post.content|slice:"200:300"}}...</p>
-                    <!--add button-->
-                </div>
-            </div>
-        {% endfor %}
-        </div>
-    </div>    
-{% endblock %}
+{% endblock content %}
