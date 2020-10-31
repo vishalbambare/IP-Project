@@ -21,4 +21,8 @@ List of packages in this virtual environment:
 * pkg-resources==0.0.0
 * pytz==2020.1
 * sqlparse==0.4.1
- 
+
+What needs to be done:
+* Make a virtual environment
+* install all requirements (its inside venv/requirements.txt)
+* See if the project runs (python3 manage.py runserver)
