@@ -11,3 +11,4 @@ class PostAdmin(SummernoteModelAdmin):
     summernote_fields = ('content',)
 
 admin.site.register(Post, PostAdmin)
+admin.site.register(AuthorProfile)

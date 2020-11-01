@@ -5,9 +5,17 @@ card {
 }
 </style>
 
+<!-- Sidebar -->
+<div class="w3-sidebar w3-bar-block w3-border-right" style="display:none; width:20%; text-align:center" id="mySidebar">
+  <h3>{{post.author}}</h3>
+  <img src="/media/{{post.author.image}}">
+  <h5>{{post.author.bio}}</h5>
+</div>
+<!-- End of Sidebar -->
+
 <div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4 mt-3 left top bg-dark text-light">
+    <div class="col-md-8 card mb-4 mt-3 right top bg-dark text-light" style="margin-left: 15%">
       <div class="card-body">
         <img class="card-img-top" src='/media/{{post.image}}'>
         <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
@@ -17,5 +25,29 @@ card {
     </div>
   </div>
 </div>
+<script>
+
+function create_button(){
+  var navbar = document.getElementById("mynavbar");
+  var button = document.createElement("button");
+  button.innerText = "Author Info";
+  button.classList.add("btn");
+  button.classList.add("btn-outline-primary");
+  
+  button.addEventListener("click", function open(){
+    if(document.getElementById("mySidebar").style.display=="block"){
+      document.getElementById("mySidebar").style.display="none";
+    }
+    else{
+      document.getElementById("mySidebar").style.display="block";
+    }
+  });
+  
+  navbar.appendChild(button);
+}
+
+create_button();
+</script>
+     
 
 {% endblock content %}
