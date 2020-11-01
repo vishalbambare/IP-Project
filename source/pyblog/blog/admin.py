@@ -10,5 +10,10 @@ class PostAdmin(SummernoteModelAdmin):
     prepopulated_fields = {'slug': ('title',)}
     summernote_fields = ('content',)
 
+class AuthorProfileAdmin(SummernoteModelAdmin):
+    list_display = ('author', 'slug',)
+    search_fields = ['author',]
+    prepopulated_fields = {'slug': ('author',)}
+
 admin.site.register(Post, PostAdmin)
-admin.site.register(AuthorProfile)
+admin.site.register(AuthorProfile, AuthorProfileAdmin)

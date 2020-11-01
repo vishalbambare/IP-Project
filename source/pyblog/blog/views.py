@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import Post
+from .models import *
 from django.views import generic
 
 # Create your views here.
@@ -21,3 +21,7 @@ class PostList(generic.ListView): #for creating post cards
 class PostDetail(generic.DetailView): #for viewing post content
     model = Post
     template_name = 'post_detail.html'
+
+class AuthorDetail(generic.DetailView): #for viewing author info
+    model = AuthorProfile
+    template_name = 'author_detail.html'

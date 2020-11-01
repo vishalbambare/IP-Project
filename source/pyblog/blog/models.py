@@ -21,6 +21,7 @@ def get_author_file_path(instance, filename):
 class AuthorProfile(models.Model):
     
     author = models.ForeignKey(User, on_delete=models.CASCADE,related_name='blog_posts')
+    slug = models.SlugField(max_length=200, unique=True, default="custom-url-for-profile")
     bio = models.TextField(default="bio")
     image = models.ImageField(upload_to=get_author_file_path, default='https://via.placeholder.com/300')
 

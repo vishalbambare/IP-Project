@@ -7,7 +7,7 @@ card {
 
 <!-- Sidebar -->
 <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none; width:20%; text-align:center" id="mySidebar">
-  <h3>{{post.author}}</h3>
+  <a href="/profile/{{post.author.slug}}"><h3>{{post.author}}</h3></a>
   <img src="/media/{{post.author.image}}">
   <h5>{{post.author.bio}}</h5>
 </div>
