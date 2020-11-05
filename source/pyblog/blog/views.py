@@ -1,7 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import *
 from django.views import generic
-
+from .forms import CommentForm
 # Create your views here.
 
 class PostList(generic.ListView): #for creating post cards
@@ -21,7 +21,8 @@ class PostList(generic.ListView): #for creating post cards
 class PostDetail(generic.DetailView): #for viewing post content
     model = Post
     template_name = 'post_detail.html'
-
+    #context_object_name = 'all_comments'
+    
 class AuthorDetail(generic.DetailView): #for viewing author info
     model = AuthorProfile
     template_name = 'author_detail.html'

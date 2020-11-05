@@ -15,5 +15,15 @@ class AuthorProfileAdmin(SummernoteModelAdmin):
     search_fields = ['author',]
     prepopulated_fields = {'slug': ('author',)}
 
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name', 'email', 'post', 'created_on', 'active',)
+    list_filter = ('active', 'created_on')
+    search_fields = ('name', 'email', 'body')
+    actions = ['remove_comment']
+
+    def remove_comment(self, request, queryset):
+        queryset.update(active=False) 
+
 admin.site.register(Post, PostAdmin)
 admin.site.register(AuthorProfile, AuthorProfileAdmin)
