@@ -19,18 +19,29 @@ card {
       <div class="card-body">
         <img class="card-img-top" src='/media/{{post.image}}'>
         <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
-        <p class=" text-muted">{{ post.author }} | {{ post.created_on }}</p>
+        <p class=" text-muted">{{ post.author }} | {{ object.created_on }}</p>
         <p class="card-text ">{{ object.content | safe }}</p>
       </div>
     </div>
   </div>
 <hr>
 
-<form action="/{{post.slug}}/" method="POST">
+<form action="/{{post.slug}}/" method="POST" class="bg-light">
 {% csrf_token %}
-{{form}}
+{{form.as_p}}
 <button type="submit" class="btn btn-primary">Comment</button>
 </form>
+<hr>
+
+<!--Comment Section-->
+<div class="bg-light">
+{% for comment in all_comments %}
+{% if comment.post == object %}
+<h3><b>{{comment.name |safe}}:</b> {{comment.body|safe}}</h3>
+{% endif %}
+{% endfor %}
+
+<!--End Comment Section-->
 
 <script>
 
@@ -53,7 +64,11 @@ function create_button(){
   navbar.appendChild(button);
 }
 
+function insert_post_id(){
+  document.getElementById("id_post").value = {{object.pk}};
+}
 create_button();
+insert_post_id();
 </script>
 
 {% endblock content %}
