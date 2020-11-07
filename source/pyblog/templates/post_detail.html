@@ -37,7 +37,7 @@ card {
 <div class="bg-light">
 {% for comment in all_comments %}
 {% if comment.post == object %}
-<h3><b>{{comment.name |safe}}:</b> {{comment.body|safe}}</h3>
+<h3><b>{{comment.name |safe}}:</b> {{comment.body |safe}}</h3>
 {% endif %}
 {% endfor %}
 
