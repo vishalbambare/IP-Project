@@ -7,5 +7,9 @@ class CommentForm(forms.ModelForm):
         fields = [
             'name',
             'email',
-            'body'
+            'body',
+            'post',
         ]
+        widgets = {
+            'post': forms.HiddenInput()
+        }

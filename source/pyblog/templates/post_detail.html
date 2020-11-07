@@ -24,6 +24,13 @@ card {
       </div>
     </div>
   </div>
+<hr>
+
+<form action="/{{post.slug}}/" method="POST">
+{% csrf_token %}
+{{form}}
+<button type="submit" class="btn btn-primary">Comment</button>
+</form>
 
 <script>
 
