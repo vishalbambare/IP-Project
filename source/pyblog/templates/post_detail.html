@@ -15,26 +15,28 @@ card {
 
 <div class="container">
   <div class="row">
-    <div class="col-md-8 card mb-4 mt-3 right top bg-dark text-light" style="margin-left: 15%">
+    <div class="bg-dark text-light" style="margin-top: 3em;">
       <div class="card-body">
         <img class="card-img-top" src='/media/{{post.image}}'>
         <h1>{% block title %} {{ object.title }} {% endblock title %}</h1>
         <p class=" text-muted">{{ post.author }} | {{ object.created_on }}</p>
         <p class="card-text ">{{ object.content | safe }}</p>
-      </div>
+      
+      <hr>
+      <form id="comment-form" action="/{{post.slug}}/" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Comment</button>
+      </form>
+    </div>
     </div>
   </div>
-<hr>
 
-<form action="/{{post.slug}}/" method="POST" class="bg-light">
-{% csrf_token %}
-{{form.as_p}}
-<button type="submit" class="btn btn-primary">Comment</button>
-</form>
+
 <hr>
 
 <!--Comment Section-->
-<div class="bg-light">
+<div class="card bg-dark text-light">
 {% for comment in all_comments %}
 {% if comment.post == object %}
 <h3><b>{{comment.name |safe}}:</b> {{comment.body |safe}}</h3>
@@ -42,15 +44,27 @@ card {
 {% endfor %}
 
 <!--End Comment Section-->
-
+</div>
+</div>
 <script>
+
+function set_css(){
+  var name = document.getElementById("id_name");
+  var email = document.getElementById("id_email");
+  var body = document.getElementById("id_body");
+  name.classList.add("form-control");
+  email.classList.add("form-control");
+  body.classList.add("form-control");
+  
+}
 
 function create_button(){
   var navbar = document.getElementById("mynavbar");
   var button = document.createElement("button");
   button.innerText = "Author Info";
   button.classList.add("btn");
-  button.classList.add("btn-outline-primary");
+  button.classList.add("btn-outline-warning");
+  button.classList.add("mb-2");
   
   button.addEventListener("click", function open(){
     if(document.getElementById("mySidebar").style.display=="block"){
@@ -69,6 +83,7 @@ function insert_post_id(){
 }
 create_button();
 insert_post_id();
+set_css();
 </script>
 
 {% endblock content %}
