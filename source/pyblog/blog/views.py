@@ -3,6 +3,7 @@ from .models import Post, AuthorProfile, Comment
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.views.generic.edit import FormMixin
+from django.shortcuts import render
 from .forms import CommentForm
 # Create your views here.
 
@@ -46,3 +47,6 @@ class PostDetail(FormMixin, DetailView): #for viewing post content, FormMixin is
 class AuthorDetail(DetailView): #for viewing author info
     model = AuthorProfile
     template_name = 'author_detail.html'
+
+def about_us(request):
+    return render(request, "about_us.html")

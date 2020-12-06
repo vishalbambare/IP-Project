@@ -10,7 +10,7 @@
       <a href="{{post.slug}}">
         <div class="card img__wrap">
           <img class="card-img-top embed-responsive-item img__img"  src="media/{{post.image}}">
-            <h4 class="img__description"><b>{{post.title}}</b><br><br>...{{post.content|slice:"250:300"}}...</h4>
+            <h4 class="img__description"><b>{{post.title}}</b><br><br><button class="btn btn-outline-light" href="{{post.slug}}">Read More</button></h4>
         </div>
       </a>
       {% endfor %}
