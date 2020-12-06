@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>PyBlog!</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta name="google" content="notranslate" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+		crossorigin="anonymous" />
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="footer, address, phone, icons" />
+    {% load static %}
+	<link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+	<link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
+
+</head>
+	<body>
+<div class="bg-image">
+<div class="bg-text">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mynavbar">
+  <h2 class="text-warning">PyBlog</h2>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="/team/about/">About Us</a>
+      </li>
+	  <li class="nav-item active">
+        <a class="nav-link" href="/admin">Log-in</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <form class="form-inline" method="GET" action="/">
+		<input type="search" class="form-control mb-2 mr-sm-2" name="search">
+		<button type="submit" class="btn btn-outline-warning mb-2">Search</butto>
+	  </form>
+    </span>
+  </div>
+</nav>
+
+{% block content %}
+
+{% endblock content %}
+<footer class="footer-distributed">
+
+<div class="footer-left">
+<img src="{% static 'blog/img/logo.png' %}">
+	<h3>About<span style="text-warning"> PyBlog</span></h3>
+
+	<p class="footer-links">
+		<a href="/">Home</a>
+		|
+		<a href="/admin">Log-in</a>
+		|
+		<a href="/team/about/">About Us</a>
+	</p>
+
+	<p class="footer-company-name">© 2020 PyBlog Pvt. Ltd.</p>
+</div>
+
+<div class="footer-center">
+	<div>
+		<i class="fa fa-map-marker"></i>
+			<p><span> vashi - Juhunagar,
+				Bldg. No. A - 1, Sector - 1</span>
+				Navi Mumbai - 400703</p>
+	</div>
+
+	<div>
+		<i class="fa fa-phone"></i>
+		<p>+91 22-27782183</p>
+	</div>
+	<div>
+		<i class="fa fa-envelope"></i>
+		<p><a href="mailto:support@eduonix.com" style="text-warning">support@PyBlog.com</a></p>
+	</div>
+</div>
+<div class="footer-right">
+	<p class="footer-company-about">
+		<span>About the company</span>
+		You can use these website for backlink purpose, you can share your articles here and gain huge amount of traffic</p>
+	<div class="footer-icons">
+		<a href="#"><i class="fa fa-facebook"></i></a>
+		<a href="#"><i class="fa fa-twitter"></i></a>
+		<a href="#"><i class="fa fa-instagram"></i></a>
+		<a href="#"><i class="fa fa-linkedin"></i></a>
+		<a href="#"><i class="fa fa-youtube"></i></a>
+	</div>
+
+</footer>
+</div>
+</div>
+</body>
+</html>

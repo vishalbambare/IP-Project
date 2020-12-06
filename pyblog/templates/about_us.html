@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+<head>
+  {% load static %}
+  <link href="{% static 'blog/css/home.css' %}" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+  <!--Prajyot-->
+    <div class="row">
+        <div class="card img__wrap">
+          <img class="card-img-top embed-responsive-item img__img"  src="{% static 'blog/img/prajyot.png' %}">
+            <h4 class="img__description"><b>Prajyot Chemburkar</b><br><br>Developer, Backend<br></h4>
+        </div>
+    </div>
+  <!--Prajyot end-->
+  <!--Avdoot-->
+    <div class="row">
+        <div class="card img__wrap">
+          <img class="card-img-top embed-responsive-item img__img"  src="{% static 'blog/img/avdoot.jpg' %}">
+            <h4 class="img__description"><b>Avadhoot Bhogil</b><br><br>Developer, Frontend<br></h4>
+        </div>
+    </div>
+  <!--Avdoot end-->
+  <!--Vishal-->
+    <div class="row">
+        <div class="card img__wrap">
+          <img class="card-img-top embed-responsive-item img__img"  src="{% static 'blog/img/vishal.png' %}">
+            <h4 class="img__description"><b>Vishal Bambare</b><br><br>Developer, Frontend<br></h4>
+        </div>
+    </div>
+  <!--Avdoot end-->
+  </div>
+{% endblock content %}
