@@ -1,3 +1,4 @@
+# pylint: disable=E1101
 from django.http import HttpResponse
 from .models import Post, AuthorProfile, Comment
 from django.views.generic.detail import DetailView
