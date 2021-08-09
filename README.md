@@ -23,6 +23,7 @@ List of packages in this virtual environment:
 * sqlparse==0.4.1
 
 What needs to be done:
+* Teach Vishal about Pull request
 * Make a virtual environment
 * install all requirements (its inside venv/requirements.txt)
 * See if the project runs (python3 manage.py runserver)
